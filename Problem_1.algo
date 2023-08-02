@@ -1,0 +1,78 @@
+ALGORITHM sum_of_distinct_elements
+
+VAR
+
+distinct : Boolean;
+x : INTEGER;
+i : INTEGER;
+sum : INTEGER := 0;
+set1 : ARRAY_OF INTEGER[n1];
+set1 : ARRAY_OF INTEGER[n2];
+
+BEGIN
+
+// Loop through each element in set1
+
+FOR i FROM 0 TO n1 - 1 DO
+
+    distinct := true;
+
+    // Compare the element with each element in set2
+
+    FOR x FROM 0 TO n2 -1 DO
+
+        IF (set1[i] = set2[x]) THEN
+
+            // If the element is found in set2, change distinct to false
+
+            distinct := false;
+
+        END_IF
+
+    END_FOR
+
+    // If the element is not found in set2, add it to the sum
+
+    IF (distinct := true) THEN
+
+            sum := sum + set1[i];
+
+        END_IF
+
+END_FOR
+
+// Loop through each element in set2
+
+FOR i FROM 0 TO n2 - 1 DO
+
+    distinct := true;
+
+    // Compare the element with each element in set1
+
+    FOR x FROM 0 TO n1 - 1 DO
+
+        IF (set2[i] = set1[x]) THEN
+
+            // If the element is found in set1, change distinct to false
+
+            distinct := false;
+
+        END_IF
+
+    END_FOR
+
+    // If the element is not found in set1, add it to the sum
+
+    IF (distinct := true) THEN
+
+            sum := sum + set2[i];
+
+        END_IF
+
+END_FOR
+
+// write the sum of all distinct elements from set1 and set2
+
+Write(sum);
+
+END
